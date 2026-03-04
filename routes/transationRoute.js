@@ -7,8 +7,8 @@ import { getMonthStats } from '../controllers/StatistiqueController.js';
 
 
 
-router.get("/:id",getTransactionById)
-router.delete("/:id", deleteTransaction);
-router.get("/stats",getMonthStats)
+ router.delete("/:id", deleteTransaction);
+ router.get("/stats",getMonthStats)
+ router.get("/:id",getTransactionById)
 
 export default router
