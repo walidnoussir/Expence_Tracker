@@ -7,5 +7,6 @@ import { deleteTransaction } from '../controllers/DeleteTransation.js';
 
 
 router.get("/:id",getTransactionById)
+router.delete("/:id", deleteTransaction);
 
 export default router
