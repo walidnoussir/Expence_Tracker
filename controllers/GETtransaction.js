@@ -23,10 +23,10 @@ export const getTransactions = async (req, res) => {
     // Filtrer par date précise
     if (date) {
       const exactDate = new Date(date);
-      exactDate.setHours(0, 0, 0, 0);
-      const nextDay = new Date(exactDate);
-      nextDay.setDate(nextDay.getDate() + 1);
-      query.date = { $gte: exactDate, $lt: nextDay };
+      exactDate.setHours(0, 0, 0, 0);  //mettre l’heure à 00:00:00
+      const nextDay = new Date(exactDate);  
+      nextDay.setDate(nextDay.getDate() + 1);   //créer le jour suivant
+      query.date = { $gte: exactDate, $lt: nextDay }; //filtrer entre 2 dates
     }
 
     // Filtrer par période (startDate & endDate)
