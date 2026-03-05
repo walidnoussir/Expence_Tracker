@@ -3,13 +3,9 @@ import Transaction from "../models/Transaction.js";
 
 export const deleteTransaction = async (req, res, next) => {
   try {
-    const { id } = req.params;
+  
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ message: "ID invalide" });
-    }
-
-    const transaction = await Transaction.findByIdAndDelete(id);
+    const transaction = await Transaction.findByIdAndDelete(req.params.id);
 
     if (!transaction) {
       return res.status(404).json({ message: "Transaction non trouvée" });

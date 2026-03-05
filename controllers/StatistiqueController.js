@@ -50,7 +50,7 @@ export const getMonthStats = async (req, res, next) => {
       categoryStats,
     });
   } catch (err) {
-    console.error(err);
+
     next(err);
   }
 };
