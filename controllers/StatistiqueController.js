@@ -24,10 +24,12 @@ export const getMonthStats = async (req, res, next) => {
 
     const expenses = transactions.filter((tr) => tr.type === "expense");
     // partie walid
-    const categoryTotals = expenses.reduce((acc, tr) => {
-      acc[tr.category] = (acc[tr.category] || 0) + tr.amount;
+    const categoryTotals = expenses.reduce((acc, curr) => {
+      acc[curr.category] = (acc[curr.category] || 0) + curr.amount;
       return acc;
     }, {});
+
+    console.log(categoryTotals);
 
     // Percentage of each category relative to total expenses
     const categoryStats = Object.entries(categoryTotals).map(
@@ -50,7 +52,6 @@ export const getMonthStats = async (req, res, next) => {
       categoryStats,
     });
   } catch (err) {
-    console.error(err);
     next(err);
   }
 };

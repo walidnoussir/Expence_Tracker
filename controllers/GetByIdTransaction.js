@@ -10,10 +10,10 @@ export const getTransactionById=async (req,res,next)=>{
             return res.status(404).json({message:"transaction non trouvé "})
 
         }
-        res.json(transaction)
+        res.status(200).json(transaction)
 
     }catch(err){
-        console.error(err);
+       
         next(err)
 
     }
